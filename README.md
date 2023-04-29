@@ -1,20 +1,20 @@
-# <Country> vat number format validators config
+# Slovenia vat number format validators config
 
 ![Code Coverage Badge](./badge.svg)
 
-This package provides a preconfigured configuration class for vat number format validators for <Country> country.
+This package provides a preconfigured configuration class for vat number format validators for Slovenia country.
 Is an extension of the package https://github.com/rocketfellows/specific-country-vat-number-format-validators-config.
 
 ## Installation
 
 ```shell
-composer require rocketfellows/<country>-vat-number-format-validators-config
+composer require rocketfellows/si-vat-number-format-validators-config
 ```
 
 ## Dependencies
 
 - https://github.com/rocketfellows/specific-country-vat-number-format-validators-config v1.0.0;
-- https://github.com/rocketfellows/<country>-vat-format-validator v1.0.0;
+- https://github.com/rocketfellows/si-vat-format-validator v1.0.0;
 
 ## References
 
@@ -23,23 +23,23 @@ composer require rocketfellows/<country>-vat-number-format-validators-config
 
 ## List of package components
 
-- **_rocketfellows\<country>VatNumberFormatValidatorsConfig\<country>VatNumberFormatValidatorsConfig_** - preconfigured configuration class for vat number format validators for <Country> country;
+- **_rocketfellows\SIVatNumberFormatValidatorsConfig\SIVatNumberFormatValidatorsConfig_** - preconfigured configuration class for vat number format validators for Slovenia country;
 
-## <country>VatNumberFormatValidatorsConfig description
+## SIVatNumberFormatValidatorsConfig description
 
-A configuration class that provides a match for the vat number format validators for the country <country>.
+A configuration class that provides a match for the vat number format validators for the country Slovenia.
 
 Class interface:
-- **_getCountry_** - returns <country> **_Country_** instance;
+- **_getCountry_** - returns Slovenia **_Country_** instance;
 - **_getValidators_** - returns validators tuple
 
-When initializing the default configuration, the **_getValidators_** function returns a tuple with a single validator - an instance of <country>VatFormatValidator.
+When initializing the default configuration, the **_getValidators_** function returns a tuple with a single validator - an instance of SIVatFormatValidator.
 
 ```php
-$config = new <country>VatNumberFormatValidatorsConfig();
+$config = new SIVatNumberFormatValidatorsConfig();
 
-$config->getCountry();      // returns <country> Country instance
-$config->getValidators();   // returns CountryVatFormatValidators with one item - instance of <country>VatFormatValidator
+$config->getCountry();      // returns Slovenia Country instance
+$config->getValidators();   // returns CountryVatFormatValidators with one item - instance of SIVatFormatValidator
 ```
 
 You can override the default validator by initializing the configuration class object with a new default validator through the first parameter of the class constructor.
@@ -47,7 +47,7 @@ Attention - validator must implement interface **_CountryVatFormatValidatorInter
 
 ```php
 $newDefaultValidator = new NewDefaultValidator();                       // instance of CountryVatFormatValidatorInterface
-$config = new <country>VatNumberFormatValidatorsConfig($newDefaultValidator);  // initialize with new default validator
+$config = new SIVatNumberFormatValidatorsConfig($newDefaultValidator);  // initialize with new default validator
 
 $config->getValidators();   // returns CountryVatFormatValidators with one item - $newDefaultValidator
 ```
@@ -61,7 +61,7 @@ And each additional validator must implement interface **_CountryVatFormatValida
 $firstAdditionalValidator = new FirstAdditionalValidator();   // instance of CountryVatFormatValidatorInterface
 $secondAdditionalValidator = new SecondAdditionalValidator(); // instance of CountryVatFormatValidatorInterface
 
-$config = new <country>VatNumberFormatValidatorsConfig(
+$config = new SIVatNumberFormatValidatorsConfig(
     null,
     (
         new CountryVatFormatValidators(
@@ -72,7 +72,7 @@ $config = new <country>VatNumberFormatValidatorsConfig(
 );
 
 // returns CountryVatFormatValidators with three items:
-// default preconfigured validator by default - instance of <country>VatFormatValidator
+// default preconfigured validator by default - instance of SIVatFormatValidator
 // $firstAdditionalValidator - from additional tuple
 // $secondAdditionalValidator - from additional tuple
 $config->getValidators();
@@ -85,7 +85,7 @@ $defaultValidator = new DefaultValidator();                   // instance of Cou
 $firstAdditionalValidator = new FirstAdditionalValidator();   // instance of CountryVatFormatValidatorInterface
 $secondAdditionalValidator = new SecondAdditionalValidator(); // instance of CountryVatFormatValidatorInterface
 
-$config = new <country>VatNumberFormatValidatorsConfig(
+$config = new SIVatNumberFormatValidatorsConfig(
     $defaultValidator,
     (
         new CountryVatFormatValidators(
